@@ -3,7 +3,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
 import { Author } from '../../author/model/Author';
 import { Game } from '../model/Game';
 import { Category } from '../../category/model/Category';
@@ -11,6 +10,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { GameService } from '../game.service';
 import { AuthorService } from '../../author/author.service';
 import { CategoryService } from '../../category/category.service';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-game-edit',

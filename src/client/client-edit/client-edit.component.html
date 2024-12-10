@@ -1,8 +1,8 @@
 <div class="container">
     @if (client.id) {
-        <h1>Modificar categoría</h1>
+        <h1>Modificar cliente</h1>
     } @else {
-        <h1>Crear categoría</h1>
+        <h1>Crear cliente</h1>
     }
 
     <form>
@@ -13,7 +13,7 @@
 
         <mat-form-field>
             <mat-label>Nombre</mat-label>
-            <input type="text" matInput placeholder="Nombre de categoría" [(ngModel)]="client.name" name="name" required>
+            <input type="text" matInput placeholder="Nombre de cliente" [(ngModel)]="client.name" name="name" required>
             <mat-error>El nombre no puede estar vacío</mat-error>
           <!-- solo debe ejecutarse si hay un error-->
               <!--   <mat-error>Ya existe un cliente con ese nombre</mat-error> -->
