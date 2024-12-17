@@ -15,8 +15,8 @@ export class ClientService {
 
   getClients(): Observable<Client[]> {
     return this.http.get<Client[]>(this.url).pipe(
-      catchError(() => { // Se ejecuta si no se puede conectar al back. INFO https://blog.angular-university.io/rxjs-error-handling/
-        // las funciones de borrado y edit no funcionaran porque llaman al back
+      catchError(() => { 
+       
         return of(CLIENT_DATA);
       })
     );
@@ -28,7 +28,7 @@ export class ClientService {
     return this.http.put<Client>(url, client);
   }
 
-  deleteClient(client: number): Observable<any> { // pasamos el id, por eso tipo number
+  deleteClient(client: number): Observable<any> { 
     return this.http.delete(`${this.url}/${client}`);
   }
 

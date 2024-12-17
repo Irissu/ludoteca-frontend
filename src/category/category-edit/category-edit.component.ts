@@ -19,16 +19,12 @@ export class CategoryEditComponent implements OnInit {
   category: Category;
 
   constructor(
-    // To access the data in your dialog component, you have to use the MAT_DIALOG_DATA injection token.
-    // https://material.angular.io/components/dialog/overview#sharing-data-with-the-dialog-component
     public dialogRef: MatDialogRef<CategoryEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {category : Category},
     private categoryService: CategoryService,
 ) {}
 
 ngOnInit(): void {
- /*  this.category = new Category(); */
-  /* this.category = this.data.category != null ? this.data.category : new Category();  */
   this.category = this.data.category ? Object.assign({}, this.data.category) : new Category(); 
 
 }

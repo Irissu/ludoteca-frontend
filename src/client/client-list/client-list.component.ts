@@ -20,7 +20,7 @@ import { DialogConfirmationComponent } from '../../core/dialog-confirmation/dial
   templateUrl: './client-list.component.html',
   styleUrl: './client-list.component.scss'
 })
-export class ClientListComponent  implements OnInit{ // implements OnInit
+export class ClientListComponent  implements OnInit{ 
 
   dataSource = new MatTableDataSource<Client>();
   displayedColumns: string[] = ['id', 'name', 'action'];
@@ -29,21 +29,20 @@ export class ClientListComponent  implements OnInit{ // implements OnInit
     private clientService: ClientService,
     public dialog: MatDialog,
   ) { }
- /* funcion ngOnInit se ejecuta al renderizar para "suscribirse" al Observable del Service con los datos
- */
+
    ngOnInit(): void {
      console.log("this function is the OnInit");
      this.clientService.getClients().subscribe(clients => this.dataSource.data = clients);
   } 
 
 createClient() {
-  const dialogRef = this.dialog.open(ClientEditComponent, { //abre el componente
-    data: {} //no es necesario pasarle datos
+  const dialogRef = this.dialog.open(ClientEditComponent, { 
+    data: {} 
   });
 
   dialogRef.afterClosed().subscribe(result => {
     this.ngOnInit();
-  });  // cuando cerramos el modal recarga con ngOnInit la tabla
+  });  
 }
 
 editClient(client: Client) {
@@ -52,7 +51,7 @@ editClient(client: Client) {
   });
 
   dialogRef.afterClosed().subscribe(result => {
-    this.ngOnInit(); // para que despues de editar se actualice la tabla
+    this.ngOnInit(); 
   });
 }
 

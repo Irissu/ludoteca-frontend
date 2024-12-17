@@ -27,22 +27,36 @@
         </mat-form-field> 
 
         <mat-form-field>
-            <mat-label>Fechas del préstamo</mat-label>
-            <input type="date" matInput name="loanDate" required>
-            <mat-error>Debes elegir una fecha para el préstamo</mat-error>
-        </mat-form-field>
+            <mat-label>Fecha</mat-label>
+            <input matInput [matDatepicker]="pickerLoan" [(ngModel)]="loan.loanDate" name="loanDate" required>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="pickerLoan" ></mat-datepicker-toggle>
+            <mat-datepicker #pickerLoan></mat-datepicker>
+             @if (errors['loanDate']) {
+                <mat-error>{{ errors['loanDate'] }}</mat-error>
+            }
+            
+    </mat-form-field> 
 
-        <mat-form-field>
-            <mat-label>Fechas del préstamo</mat-label>
-            <input type="date" matInput name="loanDate" required>
-            <mat-error>Debes elegir una fecha para la devolución</mat-error>
-            <!-- poner con un if los errores. No debe ser mayor de 14 dias-->
-             <!-- cambiar formato fecha a dd/MM/YYYY/-->
-        </mat-form-field>
+    <mat-form-field>
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="pickerReturn" [(ngModel)]="loan.returnDate" name="returnDate" required>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="pickerReturn" ></mat-datepicker-toggle>
+        <mat-datepicker #pickerReturn></mat-datepicker>
+</mat-form-field> 
+        @if (errors['returnDate']) {
+            <mat-error>{{ errors['returnDate'] }}</mat-error> 
+            <alert [message]="errors['returnDate']"></alert>  
+        }  
+        @if (errors['loanDate']) {
+            <mat-error>{{ errors['loanDate'] }}</mat-error> 
+            <alert [message]="errors['loanDate']"></alert>  
+        }  
     </form>
 
     <div class="buttons"> 
-        <button mat-stroked-button (click)="onClose()">Cancelar</button> <!--  -->
-        <button mat-flat-button color="primary" (click)="onSave()">Guardar</button> <!--  -->
+        <button mat-stroked-button (click)="onClose()">Cancelar</button> 
+        <button mat-flat-button color="primary" (click)="onSave()">Guardar</button> 
     </div>
 </div>

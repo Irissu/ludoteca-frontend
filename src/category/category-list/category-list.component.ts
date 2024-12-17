@@ -25,7 +25,7 @@ import { DialogConfirmationComponent } from '../../core/dialog-confirmation/dial
 export class CategoryListComponent implements OnInit {
 
   dataSource = new MatTableDataSource<Category>();
-    displayedColumns: string[] = ['id', 'name', 'action']; // variable con array de columnas que vamos a mostrar
+    displayedColumns: string[] = ['id', 'name', 'action']; 
 
     constructor(
       private categoryService: CategoryService,

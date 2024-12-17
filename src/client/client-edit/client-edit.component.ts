@@ -19,20 +19,18 @@ export class ClientEditComponent implements OnInit {
   client: Client;
 
   constructor(
-    public dialogRef: MatDialogRef<CategoryEditComponent>, // 
+    public dialogRef: MatDialogRef<CategoryEditComponent>, 
     @Inject(MAT_DIALOG_DATA) public data: {client: Client},
     private clientService: ClientService
   ) {}
 
   ngOnInit(): void {
-     this.client = this.data.client ? Object.assign({}, this.data.client): new Client(); /* copia del objeto, distinta ref. en memoria */
-    /* this.client = this.data.client != null ? this.data.client : new Client(); si tiene datos se crea cliente pero tiene misma referencia en memoria */
+     this.client = this.data.client ? Object.assign({}, this.data.client): new Client(); 
   }
 
   onSave() {
     console.log("closing myself from onSave")
     this.clientService.saveClient(this.client).subscribe(() => {
-      // si existe error no deberia poder guardar y debe mostrar el error
       this.dialogRef.close();
     });
   }

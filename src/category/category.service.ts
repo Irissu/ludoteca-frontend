@@ -14,9 +14,6 @@ export class CategoryService {
 
   private baseUrl = 'http://localhost:8080/category';
 
-/*   getCategories(): Observable<Category[]> {
-    return of(CATEGORY_DATA);
-  } */
 
   getCategories(): Observable<Category[]> {
 

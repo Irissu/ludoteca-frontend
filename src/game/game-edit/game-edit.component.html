@@ -23,7 +23,7 @@
             <mat-error>La edad no puede estar vacía</mat-error>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field> 
             <mat-label>Categoría</mat-label>
             <mat-select disableRipple [(ngModel)]="game.category" name="category" required>
                 @for (category of categories; track category.id) {

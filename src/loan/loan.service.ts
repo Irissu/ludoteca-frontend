@@ -20,13 +20,31 @@ export class LoanService {
     return this.http.get<Loan[]>(this.baseUrl);
   }
 
-  getLoans(pageable: Pageable): Observable<LoanPage> {
-    return this.http.post<LoanPage>(this.baseUrl, {pageable: pageable});
-    /* return of(LOAN_DATA_PAGE); */
+
+    getLoans(
+      pageable: Pageable,
+      idGame?: number,
+      idClient?: number,
+      date?: string
+    ): Observable<LoanPage> {
+      const payload = {
+        pageable: pageable,
+        idGame: idGame,
+        idClient: idClient,
+        date: date,
+      };
+      return this.http.post<LoanPage>(this.baseUrl, payload); 
+    }
+
+  getLoan(idLoan: number): Observable<Loan> {
+    return this.http.get<Loan>(`${this.baseUrl}/${idLoan}`);
   }
 
-  saveLoan(loan: Loan): Observable<void> {
-    return of(null);
+  saveLoan(loan: Loan): Observable<Loan> {
+
+    return this.http.put<Loan>(this.baseUrl, loan); 
+
+
   }
 
   deleteLoan(idLoan: number): Observable<any> {

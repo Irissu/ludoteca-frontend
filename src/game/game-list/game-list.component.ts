@@ -15,11 +15,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { GameItemComponent } from './game-item/game-item.component';
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
-
 @Component({
     selector: 'app-game-list',
     standalone: true,
@@ -43,11 +38,6 @@ export class GameListComponent implements OnInit {
     filterCategory: Category;
     filterTitle: string;
 
-    foods: Food[] = [
-      {value: 'steak-0', viewValue: 'Steak'},
-      {value: 'pizza-1', viewValue: 'Pizza'},
-      {value: 'tacos-2', viewValue: 'Tacos'},
-    ];
 
     constructor(
         private gameService: GameService,
@@ -96,7 +86,7 @@ export class GameListComponent implements OnInit {
 
       dialogRef.afterClosed().subscribe((result) => {
           this.onSearch();
-      });
+      }); 
   }
 
 }
